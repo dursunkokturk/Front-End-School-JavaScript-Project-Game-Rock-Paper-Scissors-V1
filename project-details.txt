@@ -9,3 +9,9 @@ V1
 - Math.floor(Math.random() * 3) kodu rastgele sayı üretmektedir. 0, 1 veya 2 döner
 
 NOT: Versiyonlu ödevlerin amacı tamamlanan bir önceki versiyonu koruyup (kopyasını alarak) yeni versiyonda üstüne ekleyip geliştirmek. Tamamlanan versiyonun kopyası alınmazsa bir aradan sonra işler karışabilir :)
+
+Kazanma
+
+    Taş, makası kırarak yener.
+    Kâğıt, taşı sararak yener.
+    Makas, kağıdı keserek yener.
