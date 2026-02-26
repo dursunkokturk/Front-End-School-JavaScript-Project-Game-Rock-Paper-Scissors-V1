@@ -4,10 +4,17 @@ let computerScore = 0;
 /* Bilgisayar Tercihini Duzenliyoruz */
 let computerSelect = ["taş", "kağıt", "makas"].at(Math.floor(Math.random() * 3));
 
-function rock() {
-  let r = rockButton.innerHTML;
-  console.log(r);
-}
+let rockButton.addEventListener("click", function () {
+  // rock();
+  // let r = rockButton.innerHTML;
+  // console.log(r);
+  console.log("Butona tıklandı!");
+});
+
+// function rock() {
+//   let r = rockButton.innerHTML;
+//   console.log(r);
+// }
 
 function paper() {
   let p = paperButton.innerHTML;
