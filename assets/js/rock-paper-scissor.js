@@ -4,7 +4,7 @@ let computerScore = 0;
 while (true) {
 
   /* Kullanicidan Tercihi Aliyoruz */
-  let userPreference = prompt("Tercihinizi Giriniz (taş / kağıt / makas / çıkış)");
+  /* let userPreference = prompt("Tercihinizi Giriniz (taş / kağıt / makas / çıkış)"); */
 
   /* Bilgisayar Tercihini Duzenliyoruz */
   let computerSelect = ["taş", "kağıt", "makas"].at(Math.floor(Math.random() * 3));
