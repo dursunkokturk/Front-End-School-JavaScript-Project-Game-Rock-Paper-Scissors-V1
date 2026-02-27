@@ -3,18 +3,17 @@ let computerScore = 0;
 
 /* Bilgisayar Tercihini Duzenliyoruz */
 let computerSelect = ["taş", "kağıt", "makas"].at(Math.floor(Math.random() * 3));
+console.log(computerSelect);
 
-let rockButton.addEventListener("click", function () {
+// Taş Butonuna Tıklandığında Yapılacak İşlemler
+rockButton.addEventListener("click", function () {
+  console.log("Kullanıcı Seçimi : Taş");
+  rockButton.textContent = rockButton.textContent.toLowerCase();
   // rock();
-  // let r = rockButton.innerHTML;
-  // console.log(r);
-  console.log("Butona tıklandı!");
+  if (rockButton.innerHTML === computerSelect){
+    console.log("Berabere");
+  }
 });
-
-// function rock() {
-//   let r = rockButton.innerHTML;
-//   console.log(r);
-// }
 
 function paper() {
   let p = paperButton.innerHTML;
@@ -31,34 +30,34 @@ function gameEnd() {
   console.log(ge);
 }
 
-
+/*
 while (true) {
 
-  /* Kullanicidan Tercihi Aliyoruz */
-  /* let userPreference = prompt("Tercihinizi Giriniz (taş / kağıt / makas / çıkış)"); */
+  Kullanicidan Tercihi Aliyoruz
+  let userPreference = prompt("Tercihinizi Giriniz (taş / kağıt / makas / çıkış)");
 
 
-  /* Oyun Baslamadan Yada Oyun Esnasinda Oyunu Bitirme */
+  Oyun Baslamadan Yada Oyun Esnasinda Oyunu Bitirme
   if (userPreference === "çıkış") {
     alert("Oyun Bitti");
     console.log(`Kullanıcı Puanı : ${userScore} Bilgisayar Puanı : ${computerScore}`);
     break;
   }
 
-  /* Kullaniciya Sunulan Tercihlerin Disinda Bir Tercih Girilmesi Durumu */
+  Kullaniciya Sunulan Tercihlerin Disinda Bir Tercih Girilmesi Durumu
   if (!["taş", "kağıt", "makas"].includes(userPreference)) {
     alert("Geçersiz Hamle");
     continue;
   }
 
-  /* Kullanici ve Bilgisayarin Ayni Tercihleri Yapmasi Durumu */
+  Kullanici ve Bilgisayarin Ayni Tercihleri Yapmasi Durumu
   if (userPreference === computerSelect) {
     console.log("Berabere");
     console.log(`Kullanıcı Puanı : ${userScore} Bilgisayar Puanı : ${computerScore}`);
     continue;
   }
 
-  /* Kullanici ve Bilgisayarin Farkli Tercihler Sonucunda Kazanma ve Kaybetme Durumu */
+  Kullanici ve Bilgisayarin Farkli Tercihler Sonucunda Kazanma ve Kaybetme Durumu
   let win = userPreference === "taş" && computerSelect === "makas" || userPreference === "kağıt" && computerSelect === "taş" || userPreference === "makas" && computerSelect === "kağıt";
   if (win) {
     userScore++;
@@ -68,6 +67,7 @@ while (true) {
     console.log("Kaybettin");
   }
 
-  /* Genel Puan Tablosu */
+  Genel Puan Tablosu
   console.log(`Kullanıcı Puanı : ${userScore} Bilgisayar Puanı : ${computerScore}`);
 }
+*/
