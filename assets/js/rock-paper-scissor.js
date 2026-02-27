@@ -19,7 +19,6 @@ rockButton.addEventListener("click", function () {
 paperButton.addEventListener("click", function () {
   console.log("Kullanıcı Seçimi : Taş");
   paperButton.textContent = paperButton.textContent.toLowerCase();
-  // rock();
   if (paperButton.innerHTML === computerSelect){
     console.log("Berabere");
   }
