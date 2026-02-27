@@ -5,7 +5,7 @@ let computerScore = 0;
 let computerSelect = ["taş", "kağıt", "makas"].at(Math.floor(Math.random() * 3));
 console.log("Bilgisayar Seçimi " + computerSelect);
 
-// Taş Butonuna Tıklandığında Yapılacak İşlemler
+// Tas Butonuna Tiklandiginda Yapilacak Islemler
 rockButton.addEventListener("click", function () {
   console.log("Kullanıcı Seçimi : Taş");
   rockButton.textContent = rockButton.textContent.toLowerCase();
@@ -18,7 +18,7 @@ rockButton.addEventListener("click", function () {
   }
 });
 
-// Kagit Butonuna Tıklandığında Yapılacak İşlemler
+// Kagit Butonuna Tiklandiginda Yapilacak Islemler
 paperButton.addEventListener("click", function () {
   console.log("Kullanıcı Seçimi : Kağıt");
   paperButton.textContent = paperButton.textContent.toLowerCase();
@@ -27,7 +27,7 @@ paperButton.addEventListener("click", function () {
   }
 });
 
-// Makas Butonuna Tıklandığında Yapılacak İşlemler
+// Makas Butonuna Tiklandiginda Yapilacak Islemler
 scissorButton.addEventListener("click", function () {
   console.log("Kullanıcı Seçimi : Makas");
   scissorButton.textContent = scissorButton.textContent.toLowerCase();
@@ -36,7 +36,7 @@ scissorButton.addEventListener("click", function () {
   }
 });
 
-// Oyunu Bitir Butonuna Tıklandığında Yapılacak İşlemler
+// Oyunu Bitir Butonuna Tiklandiginda Yapilacak Islemler
 gameEndButton.addEventListener("click", function () {
   console.log("Oyun Bitti");
   gameEndButton.textContent = gameEndButton.textContent.toLowerCase();
