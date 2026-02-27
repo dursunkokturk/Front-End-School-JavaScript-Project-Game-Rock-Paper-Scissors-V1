@@ -15,7 +15,7 @@ rockButton.addEventListener("click", function () {
   }
 });
 
-// Taş Butonuna Tıklandığında Yapılacak İşlemler
+// Kagit Butonuna Tıklandığında Yapılacak İşlemler
 paperButton.addEventListener("click", function () {
   console.log("Kullanıcı Seçimi : Taş");
   paperButton.textContent = paperButton.textContent.toLowerCase();
