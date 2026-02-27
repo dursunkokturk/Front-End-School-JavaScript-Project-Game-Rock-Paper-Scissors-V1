@@ -3,7 +3,7 @@ let computerScore = 0;
 
 /* Bilgisayar Tercihini Duzenliyoruz */
 let computerSelect = ["taş", "kağıt", "makas"].at(Math.floor(Math.random() * 3));
-console.log(computerSelect);
+console.log("Bilgisayar Seçimi "+computerSelect);
 
 // Taş Butonuna Tıklandığında Yapılacak İşlemler
 rockButton.addEventListener("click", function () {
