@@ -3,40 +3,47 @@ let computerScore = 0;
 
 /* Bilgisayar Tercihini Duzenliyoruz */
 let computerSelect = ["taş", "kağıt", "makas"].at(Math.floor(Math.random() * 3));
-console.log("Bilgisayar Seçimi "+computerSelect);
+console.log("Bilgisayar Seçimi " + computerSelect);
 
 // Taş Butonuna Tıklandığında Yapılacak İşlemler
 rockButton.addEventListener("click", function () {
   console.log("Kullanıcı Seçimi : Taş");
   rockButton.textContent = rockButton.textContent.toLowerCase();
   // rock();
-  if (rockButton.innerHTML === computerSelect){
-    console.log("Berabere");
+  if (rockButton.innerHTML === computerSelect) {
+    alert("Kazandınız");
+  } else {
+    alert("Kaybettiniz \n Bilgisayar Seçimi " + computerSelect);
+    
   }
 });
 
 // Kagit Butonuna Tıklandığında Yapılacak İşlemler
 paperButton.addEventListener("click", function () {
-  console.log("Kullanıcı Seçimi : Taş");
+  console.log("Kullanıcı Seçimi : Kağıt");
   paperButton.textContent = paperButton.textContent.toLowerCase();
-  if (paperButton.innerHTML === computerSelect){
+  if (paperButton.innerHTML === computerSelect) {
     console.log("Berabere");
   }
 });
 
 // Makas Butonuna Tıklandığında Yapılacak İşlemler
 scissorButton.addEventListener("click", function () {
-  console.log("Kullanıcı Seçimi : Taş");
+  console.log("Kullanıcı Seçimi : Makas");
   scissorButton.textContent = scissorButton.textContent.toLowerCase();
-  if (scissorButton.innerHTML === computerSelect){
+  if (scissorButton.innerHTML === computerSelect) {
     console.log("Berabere");
   }
 });
 
-function gameEnd() {
-  let ge = gameEndButton.innerHTML;
-  console.log(ge);
-}
+// Oyunu Bitir Butonuna Tıklandığında Yapılacak İşlemler
+gameEndButton.addEventListener("click", function () {
+  console.log("Oyun Bitti");
+  gameEndButton.textContent = gameEndButton.textContent.toLowerCase();
+  if (gameEndButton.innerHTML === computerSelect) {
+    console.log("Berabere");
+  }
+});
 
 /*
 while (true) {
