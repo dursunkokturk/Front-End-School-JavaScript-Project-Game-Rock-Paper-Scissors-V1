@@ -24,10 +24,14 @@ paperButton.addEventListener("click", function () {
   }
 });
 
-function scissor() {
-  let s = scissorButton.innerHTML;
-  console.log(s);
-}
+// Makas Butonuna Tıklandığında Yapılacak İşlemler
+scissorButton.addEventListener("click", function () {
+  console.log("Kullanıcı Seçimi : Taş");
+  scissorButton.textContent = scissorButton.textContent.toLowerCase();
+  if (scissorButton.innerHTML === computerSelect){
+    console.log("Berabere");
+  }
+});
 
 function gameEnd() {
   let ge = gameEndButton.innerHTML;
