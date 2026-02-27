@@ -9,7 +9,6 @@ console.log("Bilgisayar Seçimi " + computerSelect);
 rockButton.addEventListener("click", function () {
   console.log("Kullanıcı Seçimi : Taş");
   rockButton.textContent = rockButton.textContent.toLowerCase();
-  // rock();
   if (rockButton.innerHTML === computerSelect) {
     userScore++;
     alert("Kullanıcı Puanı : "+userScore);
