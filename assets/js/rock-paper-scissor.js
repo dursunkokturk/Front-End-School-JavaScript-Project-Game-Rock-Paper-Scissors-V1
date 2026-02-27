@@ -15,10 +15,15 @@ rockButton.addEventListener("click", function () {
   }
 });
 
-function paper() {
-  let p = paperButton.innerHTML;
-  console.log(p);
-}
+// Taş Butonuna Tıklandığında Yapılacak İşlemler
+paperButton.addEventListener("click", function () {
+  console.log("Kullanıcı Seçimi : Taş");
+  paperButton.textContent = paperButton.textContent.toLowerCase();
+  // rock();
+  if (paperButton.innerHTML === computerSelect){
+    console.log("Berabere");
+  }
+});
 
 function scissor() {
   let s = scissorButton.innerHTML;
