@@ -21,12 +21,12 @@ rockButton.addEventListener("click", function () {
   rockButton.textContent = rockButton.textContent.toLowerCase();
   if (rockButton.innerHTML === computerSelect) {
     userScore++;
-    alert("Kullanıcı Puanı : "+userScore);
-    alert("Kazandınız");
+    console.log("Kullanıcı Puanı : "+userScore);
+    console.log("Kazandınız");
   } else {
     computerScore++;
     console.log("Bilgisayar Puanı : "+computerScore);
-    alert("Kaybettiniz \n Bilgisayar Seçimi " + computerSelect);
+    console.log("Kaybettiniz \n Bilgisayar Seçimi " + computerSelect);
   }
 });
 
@@ -36,9 +36,13 @@ paperButton.addEventListener("click", function () {
   console.log("Kullanıcı Seçimi : Kağıt");
   paperButton.textContent = paperButton.textContent.toLowerCase();
   if (paperButton.innerHTML === computerSelect) {
-    alert("Kazandınız");
+    userScore++;
+    console.log("Kullanıcı Puanı : "+userScore);
+    console.log("Kazandınız");
   } else {
-    alert("Kaybettiniz \n Bilgisayar Seçimi " + computerSelect);
+    computerScore++;
+    console.log("Bilgisayar Puanı : "+computerScore);
+    console.log("Kaybettiniz \n Bilgisayar Seçimi " + computerSelect);
   }
 });
 
@@ -48,9 +52,13 @@ scissorButton.addEventListener("click", function () {
   console.log("Kullanıcı Seçimi : Makas");
   scissorButton.textContent = scissorButton.textContent.toLowerCase();
   if (scissorButton.innerHTML === computerSelect) {
-    alert("Kazandınız");
+    userScore++;
+    console.log("Kullanıcı Puanı : "+userScore);
+    console.log("Kazandınız");
   } else {
-    alert("Kaybettiniz \n Bilgisayar Seçimi " + computerSelect);
+    computerScore++;
+    console.log("Bilgisayar Puanı : "+computerScore);
+    console.log("Kaybettiniz \n Bilgisayar Seçimi " + computerSelect);
   }
 });
 
