@@ -1,0 +1,360 @@
+/* ============================================================
+       RESET & CSS DEĞİŞKENLERİ
+       Tüm ekran boyutlarında geçerli temel ayarlar
+    ============================================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #0a0a0f;
+  --surface: #13131a;
+  --border: #2a2a3a;
+  --accent: #e8ff00;
+  --accent2: #ff3c6e;
+  --text: #f0f0f0;
+  --muted: #666;
+}
+
+/* ============================================================
+       MOBİL — 0px ve üzeri (max-width: 479px)
+       Varsayılan stiller. En küçük ekrandan başlıyoruz.
+       Hedef cihaz: telefon (iPhone SE, Galaxy S serisi vb.)
+    ============================================================ */
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Space Mono', monospace;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  /* Mobilde Dar Ekranlarda Kenar Bosluklari */
+  gap: 1.25rem;
+  padding: 1.25rem 1rem;
+
+  background-image:
+    radial-gradient(ellipse at 20% 20%, rgba(232, 255, 0, 0.04) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 80%, rgba(255, 60, 110, 0.04) 0%, transparent 50%);
+}
+
+h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.2rem;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+  text-shadow: 0 0 30px rgba(232, 255, 0, 0.3);
+  text-align: center;
+}
+
+.scoreboard {
+  display: flex;
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  width: 100%;
+  max-width: 340px;
+}
+
+.score-box {
+  background: var(--surface);
+  padding: 0.75rem 0;
+  text-align: center;
+  flex: 1;
+}
+
+.score-box .label {
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  margin-bottom: 0.3rem;
+}
+
+.score-box .value {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--text);
+}
+
+.score-box.player .value {
+  color: var(--accent);
+}
+
+.score-box.computer .value {
+  color: var(--accent2);
+}
+
+.choices {
+  display: flex;
+  flex-direction: column;
+  /* Mobilde butonlar alt alta */
+  gap: 0.75rem;
+  width: 100%;
+  max-width: 280px;
+}
+
+.choice-btn {
+  background: var(--surface);
+  border: 2px solid var(--border);
+  color: var(--text);
+  font-family: 'Space Mono', monospace;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+
+  /* Mobilde Yatay Duzen */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 0.9rem 1.2rem;
+  width: 100%;
+}
+
+.choice-btn .emoji {
+  font-size: 1.6rem;
+}
+
+.choice-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(232, 255, 0, 0.12);
+}
+
+.choice-btn:active {
+  transform: translateY(0);
+}
+
+.result-area {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.2rem 1rem;
+  text-align: center;
+  width: 100%;
+  max-width: 340px;
+  min-height: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.result-status {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.8rem;
+  letter-spacing: 0.08em;
+}
+
+.result-status.win {
+  color: var(--accent);
+}
+
+.result-status.lose {
+  color: var(--accent2);
+}
+
+.result-status.draw {
+  color: var(--muted);
+}
+
+.result-detail {
+  font-size: 0.68rem;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+}
+
+.end-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.end-btn:hover {
+  border-color: var(--accent2);
+  color: var(--accent2);
+}
+
+/* Animasyon — tüm boyutlarda aynı */
+@keyframes pop {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.08);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.pop {
+  animation: pop 0.25s ease;
+}
+
+
+@media (min-width: 767px) {
+
+  body {
+    gap: 1.75rem;
+    padding: 1.75rem 1.5rem;
+  }
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  .scoreboard {
+    max-width: 420px;
+  }
+
+  .score-box {
+    padding: 0.9rem 1.5rem;
+  }
+
+  .score-box .label {
+    font-size: 0.63rem;
+  }
+
+  .score-box .value {
+    font-size: 2.3rem;
+  }
+
+  .choices {
+    flex-direction: row;
+    gap: 0.9rem;
+    max-width: 420px;
+  }
+
+  .choice-btn {
+    flex-direction: column;
+    padding: 1.1rem 1.4rem;
+    flex: 1;
+  }
+
+  .choice-btn .emoji {
+    font-size: 1.9rem;
+  }
+
+  .result-area {
+    max-width: 420px;
+    padding: 1.4rem 2rem;
+    min-height: 85px;
+  }
+
+  .result-status {
+    font-size: 2rem;
+  }
+
+  .result-detail {
+    font-size: 0.72rem;
+  }
+
+  .end-btn {
+    font-size: 0.68rem;
+    padding: 0.6rem 1.3rem;
+  }
+}
+
+
+@media (min-width: 1024px) {
+
+  body {
+    gap: 2rem;
+    padding: 2rem;
+  }
+
+  h1 {
+    font-size: 4.5rem;
+    text-shadow: 0 0 40px rgba(232, 255, 0, 0.35);
+  }
+
+  .scoreboard {
+    max-width: none;
+  }
+
+  .score-box {
+    padding: 1rem 2.5rem;
+    min-width: 130px;
+  }
+
+  .score-box .label {
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+  }
+
+  .score-box .value {
+    font-size: 2.5rem;
+  }
+
+  .choices {
+    gap: 1rem;
+    max-width: none;
+  }
+
+  .choice-btn {
+    padding: 1.2rem 2rem;
+    border-radius: 12px;
+    font-size: 0.85rem;
+  }
+
+  .choice-btn .emoji {
+    font-size: 2.2rem;
+  }
+
+  .choice-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(232, 255, 0, 0.18);
+  }
+
+  .result-area {
+    max-width: none;
+    min-width: 420px;
+    padding: 1.5rem 3rem;
+    min-height: 90px;
+    border-radius: 12px;
+  }
+
+  .result-status {
+    font-size: 2.2rem;
+  }
+
+  .result-detail {
+    font-size: 0.78rem;
+    letter-spacing: 0.05em;
+  }
+
+  .end-btn {
+    font-size: 0.7rem;
+    padding: 0.65rem 1.5rem;
+  }
+}

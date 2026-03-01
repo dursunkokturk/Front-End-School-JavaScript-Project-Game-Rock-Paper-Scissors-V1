@@ -6,15 +6,48 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Taş Kağıt Makas Oyunu</title>
   <script src="assets/js/rock-paper-scissor.js" defer></script>
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
 
-  <button id="rockButton">Taş</button>
-  <button id="paperButton">Kağıt</button>
-  <button id="scissorButton">Makas</button>
+  <h1>Taş Kağıt Makas</h1>
 
-  <button id="gameEndButton">Oyunu Bitir</button>
+  <div class="scoreboard">
+    <div class="score-box player">
+      <div class="label">Sen</div>
+      <div class="value" id="userScoreEl">0</div>
+    </div>
+    <div class="score-box">
+      <div class="label">Berabere</div>
+      <div class="value" id="drawScoreEl">0</div>
+    </div>
+    <div class="score-box computer">
+      <div class="label">Bilgisayar</div>
+      <div class="value" id="computerScoreEl">0</div>
+    </div>
+  </div>
+
+  <div class="choices">
+    <button class="choice-btn" id="rockButton">
+      <span class="emoji">🪨</span>
+      Taş
+    </button>
+    <button class="choice-btn" id="paperButton">
+      <span class="emoji">📄</span>
+      Kağıt
+    </button>
+    <button class="choice-btn" id="scissorButton">
+      <span class="emoji">✂️</span>
+      Makas
+    </button>
+  </div>
+
+  <div class="result-area" id="resultArea">
+    <div class="result-status draw">— Seçimini yap —</div>
+  </div>
+
+  <button class="end-btn" id="gameEndButton">Oyunu Sıfırla</button>
 
 </body>
 

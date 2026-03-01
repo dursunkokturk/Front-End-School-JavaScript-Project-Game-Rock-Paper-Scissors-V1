@@ -1,72 +1,107 @@
-let userScore = 0;
-let computerScore = 0;
+// Skorlari localStorage'dan Aliyoruz
+let userScore = parseInt(localStorage.getItem('userScore')) || 0;
+let computerScore = parseInt(localStorage.getItem('computerScore')) || 0;
+let drawScore = parseInt(localStorage.getItem('drawScore')) || 0;
 
-// Fonksiyon Her Cagirilmasinda Farkli Bir Sayi Uretiyoruz
-// Uretilen Sayiyi Secenekler Ile Eslestiriyoruz
-function getComputerChoise(){
-  const choises = ["taş", "kağıt", "makas"];
-  const randomIndex = Math.floor(Math.random() * 3);
+const userScoreEl = document.getElementById('userScoreEl');
+const computerScoreEl = document.getElementById('computerScoreEl');
+const drawScoreEl = document.getElementById('drawScoreEl');
+const resultArea = document.getElementById('resultArea');
 
-  return choises[randomIndex];
+// Sayfa yüklenince skorları göster
+updateScoreDisplay();
+
+function updateScoreDisplay() {
+  userScoreEl.textContent = userScore;
+  computerScoreEl.textContent = computerScore;
+  drawScoreEl.textContent = drawScore;
 }
-/* Bilgisayar Tercihini Duzenliyoruz */
-// let computerSelect = ["taş", "kağıt", "makas"].at(Math.floor(Math.random() * 3));
-// console.log("Bilgisayar Seçimi " + computerSelect);
 
-// Tas Butonuna Tiklandiginda Yapilacak Islemler
-rockButton.addEventListener("click", function () {
-  computerSelect = getComputerChoise();
-  console.log("Kullanıcı Seçimi : Taş");
-  // let userChoise = "taş";
-  rockButton.textContent = rockButton.textContent.toLowerCase();
-  if (rockButton.innerHTML === computerSelect) {
+function saveScores() {
+  localStorage.setItem('userScore', userScore);
+  localStorage.setItem('computerScore', computerScore);
+  localStorage.setItem('drawScore', drawScore);
+}
+
+function getComputerChoice() {
+  const choices = ['taş', 'kağıt', 'makas'];
+  return choices[Math.floor(Math.random() * 3)];
+}
+
+const choiceEmoji = { 'taş': '🪨', 'kağıt': '📄', 'makas': '✂️' };
+const choiceName = { 'taş': 'Taş', 'kağıt': 'Kağıt', 'makas': 'Makas' };
+
+// Kazananı belirle: 'win', 'lose', 'draw'
+function getResult(user, computer) {
+  if (user === computer) return 'draw';
+  if (
+    (user === 'taş' && computer === 'makas') ||
+    (user === 'kağıt' && computer === 'taş') ||
+    (user === 'makas' && computer === 'kağıt')
+  ) return 'win';
+  return 'lose';
+}
+
+const winMessages = {
+  taş: 'Taş, makası kırdı! 💥',
+  kağıt: 'Kağıt, taşı sardı! 🎁',
+  makas: 'Makas, kağıdı kesti! ✂️'
+};
+
+const loseMessages = {
+  taş: 'Bilgisayarın kağıdı taşını sardı.',
+  kağıt: 'Bilgisayarın makası kağıdını kesti.',
+  makas: 'Bilgisayarın taşı makasını kırdı.'
+};
+
+function play(userChoice) {
+  const computerChoice = getComputerChoice();
+  const result = getResult(userChoice, computerChoice);
+
+  let statusClass, statusText, detailText;
+
+  if (result === 'draw') {
+    drawScore++;
+    statusClass = 'draw';
+    statusText = 'Berabere';
+    detailText = `İkiniz de ${choiceName[userChoice]} seçtiniz.`;
+  } else if (result === 'win') {
     userScore++;
-    console.log("Kullanıcı Puanı : "+userScore);
-    console.log("Kazandınız");
+    statusClass = 'win';
+    statusText = 'Kazandın!';
+    detailText = winMessages[userChoice];
   } else {
     computerScore++;
-    console.log("Bilgisayar Puanı : "+computerScore);
-    console.log("Kaybettiniz \n Bilgisayar Seçimi " + computerSelect);
+    statusClass = 'lose';
+    statusText = 'Kaybettin!';
+    detailText = loseMessages[userChoice] || `Bilgisayar: ${choiceName[computerChoice]}`;
   }
-});
 
-// Kagit Butonuna Tiklandiginda Yapilacak Islemler
-paperButton.addEventListener("click", function () {
-  computerSelect = getComputerChoise();
-  console.log("Kullanıcı Seçimi : Kağıt");
-  paperButton.textContent = paperButton.textContent.toLowerCase();
-  if (paperButton.innerHTML === computerSelect) {
-    userScore++;
-    console.log("Kullanıcı Puanı : "+userScore);
-    console.log("Kazandınız");
-  } else {
-    computerScore++;
-    console.log("Bilgisayar Puanı : "+computerScore);
-    console.log("Kaybettiniz \n Bilgisayar Seçimi " + computerSelect);
-  }
-});
+  detailText += `  |  Sen: ${choiceEmoji[userChoice]}  Bilgisayar: ${choiceEmoji[computerChoice]}`;
 
-// Makas Butonuna Tiklandiginda Yapilacak Islemler
-scissorButton.addEventListener("click", function () {
-  computerSelect = getComputerChoise();
-  console.log("Kullanıcı Seçimi : Makas");
-  scissorButton.textContent = scissorButton.textContent.toLowerCase();
-  if (scissorButton.innerHTML === computerSelect) {
-    userScore++;
-    console.log("Kullanıcı Puanı : "+userScore);
-    console.log("Kazandınız");
-  } else {
-    computerScore++;
-    console.log("Bilgisayar Puanı : "+computerScore);
-    console.log("Kaybettiniz \n Bilgisayar Seçimi " + computerSelect);
-  }
-});
+  resultArea.innerHTML = `
+        <div class="result-status ${statusClass}">${statusText}</div>
+        <div class="result-detail">${detailText}</div>
+      `;
 
-// Oyunu Bitir Butonuna Tiklandiginda Yapilacak Islemler
-gameEndButton.addEventListener("click", function () {
-  console.log("Oyun Bitti");
-  gameEndButton.textContent = gameEndButton.textContent.toLowerCase();
-  if (gameEndButton.innerHTML === computerSelect) {
-    console.log("Berabere");
-  }
+  // Pop animasyonu
+  resultArea.classList.remove('pop');
+  void resultArea.offsetWidth;
+  resultArea.classList.add('pop');
+
+  updateScoreDisplay();
+  saveScores();
+}
+
+document.getElementById('rockButton').addEventListener('click', () => play('taş'));
+document.getElementById('paperButton').addEventListener('click', () => play('kağıt'));
+document.getElementById('scissorButton').addEventListener('click', () => play('makas'));
+
+document.getElementById('gameEndButton').addEventListener('click', () => {
+  userScore = 0;
+  computerScore = 0;
+  drawScore = 0;
+  saveScores();
+  updateScoreDisplay();
+  resultArea.innerHTML = `<div class="result-status draw">— Skorlar sıfırlandı —</div>`;
 });
